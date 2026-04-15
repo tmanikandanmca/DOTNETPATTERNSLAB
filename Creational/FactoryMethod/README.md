@@ -8,6 +8,14 @@ This solution demonstrates how object creation can be separated from client logi
 
 The **Factory Method** pattern is a **creational design pattern**. Its purpose is to encapsulate object creation and return products through a common abstraction.
 
+## Definition
+
+**Factory Method** defines an interface or base workflow for creating an object, but lets subclasses or dedicated creator logic decide **which concrete object** gets instantiated.
+
+In simple terms, the pattern answers this question:
+
+> “How can the client use an object without hard-coding the exact class that must be created?”
+
 Instead of writing concrete instantiation directly in the client, such as:
 
 ```csharp
@@ -223,6 +231,27 @@ var output = creator.Compose("Hello from the factory method pattern");
 - the base class executes the common workflow
 - the subclass decides which formatter to create
 - the output changes without changing the client workflow
+
+---
+
+## How to Validate That This Implementation Is Correct
+
+You can validate the current implementation using the following checklist:
+
+- **Client depends on abstractions**: client code should work with interfaces or base classes such as `IRenderer`, `INotifier`, or `MessageCreator`.
+- **Creation is centralized**: object creation should happen inside a factory, creator, or overridden factory method instead of being scattered across client code.
+- **Concrete classes can be swapped**: changing from one concrete product to another should require little or no change in client logic.
+- **Behavior remains consistent**: each returned object must satisfy the same contract and work correctly through the shared abstraction.
+- **New product types are easy to add**: you should be able to introduce another formatter, notifier, or renderer with minimal impact on existing callers.
+
+### Practical validation steps
+
+1. Run each project and call its demo endpoint.
+2. Confirm that the client receives the expected output through the abstraction, not by directly creating a concrete class.
+3. Replace the chosen creator or factory input and verify that the returned concrete implementation changes correctly.
+4. Add a new product implementation and confirm that the client workflow stays unchanged.
+
+If these checks pass, the implementation is following the intent of the Factory Method pattern correctly.
 
 ---
 
