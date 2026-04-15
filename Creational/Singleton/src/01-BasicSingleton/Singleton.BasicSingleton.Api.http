@@ -1,0 +1,6 @@
+@Singleton.BasicSingleton.Api_HostAddress = http://localhost:5291
+
+GET {{Singleton.BasicSingleton.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

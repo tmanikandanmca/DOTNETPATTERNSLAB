@@ -1,0 +1,6 @@
+@AbstractFactory.FactoryOfFactories.Api_HostAddress = http://localhost:5182
+
+GET {{AbstractFactory.FactoryOfFactories.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

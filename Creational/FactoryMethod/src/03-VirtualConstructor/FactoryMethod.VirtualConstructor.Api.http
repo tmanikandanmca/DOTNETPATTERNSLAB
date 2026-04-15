@@ -1,0 +1,6 @@
+@FactoryMethod.VirtualConstructor.Api_HostAddress = http://localhost:5187
+
+GET {{FactoryMethod.VirtualConstructor.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

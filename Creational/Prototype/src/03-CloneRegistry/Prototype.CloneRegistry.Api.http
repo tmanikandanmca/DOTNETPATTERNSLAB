@@ -1,0 +1,6 @@
+@Prototype.CloneRegistry.Api_HostAddress = http://localhost:5118
+
+GET {{Prototype.CloneRegistry.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

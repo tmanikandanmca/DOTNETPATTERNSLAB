@@ -1,0 +1,6 @@
+@Singleton.DoubleCheckedLocking.Api_HostAddress = http://localhost:5042
+
+GET {{Singleton.DoubleCheckedLocking.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

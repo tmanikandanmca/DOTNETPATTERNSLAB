@@ -1,0 +1,6 @@
+@FactoryMethod.SimpleFactory.Api_HostAddress = http://localhost:5225
+
+GET {{FactoryMethod.SimpleFactory.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

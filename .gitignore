@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# .NET build output
+bin/
+obj/
+TestResults/
+artifacts/
+
+# User-specific files
+*.user
+*.suo
+*.userprefs
+
+# Logs and coverage
+*.log
+coverage/

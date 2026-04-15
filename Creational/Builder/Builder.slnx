@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-FluentBuilder/">
+    <Project Path="src/01-FluentBuilder/Builder.FluentBuilder.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-StepBuilder/">
+    <Project Path="src/02-StepBuilder/Builder.StepBuilder.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/03-DirectorBasedBuilder/">
+    <Project Path="src/03-DirectorBasedBuilder/Builder.DirectorBasedBuilder.Api.csproj" />
+  </Folder>
+</Solution>

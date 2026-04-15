@@ -1,0 +1,23 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-BasicSingleton/">
+    <Project Path="src/01-BasicSingleton/Singleton.BasicSingleton.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-ThreadSafeLock/">
+    <Project Path="src/02-ThreadSafeLock/Singleton.ThreadSafeLock.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/03-DoubleCheckedLocking/">
+    <Project Path="src/03-DoubleCheckedLocking/Singleton.DoubleCheckedLocking.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/04-LazyInitialization/">
+    <Project Path="src/04-LazyInitialization/Singleton.LazyInitialization.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/05-EagerInitialization/">
+    <Project Path="src/05-EagerInitialization/Singleton.EagerInitialization.Api.csproj" />
+  </Folder>
+</Solution>

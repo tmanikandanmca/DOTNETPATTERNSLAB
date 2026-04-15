@@ -1,0 +1,6 @@
+@Builder.FluentBuilder.Api_HostAddress = http://localhost:5119
+
+GET {{Builder.FluentBuilder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
