@@ -32,36 +32,16 @@ The examples progressively move from a simple centralized creator toward the cla
 
 `MessageCreator.Compose()` uses `CreateFormatter()` internally. Subclasses decide which formatter to create, while the base class keeps the composition workflow unchanged.
 
-## UML diagram
+## Diagram
 
 ```mermaid
-classDiagram
-    class MessageCreator {
-        +Compose(value) string
-        #CreateFormatter() IMessageFormatter
-    }
-
-    class JsonMessageCreator {
-        #CreateFormatter() IMessageFormatter
-    }
-
-    class HtmlMessageCreator {
-        #CreateFormatter() IMessageFormatter
-    }
-
-    class IMessageFormatter {
-        <<interface>>
-        +Format(value) string
-    }
-
-    class JsonFormatter
-    class HtmlFormatter
-
-    MessageCreator <|-- JsonMessageCreator
-    MessageCreator <|-- HtmlMessageCreator
-    IMessageFormatter <|.. JsonFormatter
-    IMessageFormatter <|.. HtmlFormatter
-    MessageCreator --> IMessageFormatter : creates
+flowchart TD
+    A[Client] --> B[MessageCreator]
+    B --> C[IMessageFormatter]
+    D[JsonMessageCreator] -.inherits.-> B
+    E[HtmlMessageCreator] -.inherits.-> B
+    D --> F[JsonFormatter]
+    E --> G[HtmlFormatter]
 ```
 
 ## Summary

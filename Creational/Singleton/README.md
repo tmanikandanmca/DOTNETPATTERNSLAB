@@ -29,23 +29,12 @@ Each example uses the same core rules:
 - **Lazy Initialization** uses the platform-provided solution.
 - **Eager Initialization** is useful when early creation is acceptable and simplicity matters.
 
-## UML diagram
+## Diagram
 
 ```mermaid
-classDiagram
-    class SingletonService {
-        -static Instance
-        -id : Guid
-        -SingletonService()
-        +GetInstance()
-        +Id : string
-    }
-
-    class ClientDemo {
-        +Create() object
-    }
-
-    ClientDemo --> SingletonService : calls GetInstance()
+flowchart TD
+    A[Client Demo] --> B[Singleton Service]
+    B --> C[One shared instance]
 ```
 
 ## Summary

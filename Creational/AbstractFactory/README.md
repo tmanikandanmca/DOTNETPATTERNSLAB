@@ -29,39 +29,18 @@ The `IUiKitFactory` contract guarantees that each theme can create both a button
 
 This is the main benefit of Abstract Factory: **consistency across related products**.
 
-## UML diagram
+## Diagram
 
 ```mermaid
-classDiagram
-    class IUiKitFactory {
-        <<interface>>
-        +CreateButton() IButton
-        +CreateCard() ICard
-    }
-
-    class LightUiKitFactory
-    class DarkUiKitFactory
-    class IButton {
-        <<interface>>
-    }
-    class ICard {
-        <<interface>>
-    }
-    class LightButton
-    class DarkButton
-    class LightCard
-    class DarkCard
-
-    IUiKitFactory <|.. LightUiKitFactory
-    IUiKitFactory <|.. DarkUiKitFactory
-    IButton <|.. LightButton
-    IButton <|.. DarkButton
-    ICard <|.. LightCard
-    ICard <|.. DarkCard
-    LightUiKitFactory --> LightButton : creates
-    LightUiKitFactory --> LightCard : creates
-    DarkUiKitFactory --> DarkButton : creates
-    DarkUiKitFactory --> DarkCard : creates
+flowchart TD
+    A[IUiKitFactory] --> B[IButton]
+    A --> C[ICard]
+    D[LightUiKitFactory] -.implements.-> A
+    E[DarkUiKitFactory] -.implements.-> A
+    D --> F[LightButton]
+    D --> G[LightCard]
+    E --> H[DarkButton]
+    E --> I[DarkCard]
 ```
 
 ## Summary

@@ -32,41 +32,15 @@ Best when certain steps are mandatory and should happen in a fixed sequence.
 
 Best when the construction recipe should be reusable and separated from the concrete builder implementation.
 
-## UML diagram
+## Diagram
 
 ```mermaid
-classDiagram
-    class ApiRequestBuilder {
-        +WithEndpoint(endpoint) ApiRequestBuilder
-        +UsingMethod(method) ApiRequestBuilder
-        +AddHeader(key, value) ApiRequestBuilder
-        +Build() ApiRequest
-    }
-
-    class DeploymentPlanBuilder {
-        +Create() INameStep
-        +Named(name) IEnvironmentStep
-        +ForEnvironment(environment) IRegionStep
-        +InRegion(region) IOptionalStep
-        +WithMonitoring(enabled) IOptionalStep
-        +Build() DeploymentPlan
-    }
-
-    class ISandwichBuilder {
-        <<interface>>
-        +Reset()
-        +UseBread(bread)
-        +AddMain(main)
-        +AddSalad()
-        +AddSauce()
-        +Build() Sandwich
-    }
-
-    class SandwichDirector {
-        +CreateClub(builder) Sandwich
-    }
-
-    SandwichDirector --> ISandwichBuilder : orchestrates
+flowchart TD
+    A[Client] --> B[Builder]
+    B --> C[Step by step configuration]
+    C --> D[Build]
+    D --> E[Finished object]
+    F[Director] --> B
 ```
 
 ## Summary

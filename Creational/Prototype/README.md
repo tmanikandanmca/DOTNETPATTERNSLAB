@@ -32,34 +32,14 @@ The clone gets its own nested object, so updating the clone’s city does not ch
 
 The registry acts like a catalog of preconfigured templates. The client asks for a named template, receives a clone, and customizes it safely.
 
-## UML diagram
+## Diagram
 
 ```mermaid
-classDiagram
-    class CustomerProfile {
-        +Name : string
-        +Address : Address
-        +ShallowClone() CustomerProfile
-        +DeepClone() CustomerProfile
-    }
-
-    class Address {
-        +City : string
-    }
-
-    class TemplateDocument {
-        +Title : string
-        +Category : string
-        +Clone() TemplateDocument
-    }
-
-    class DocumentRegistry {
-        +Register(key, template)
-        +Create(key) TemplateDocument
-    }
-
-    CustomerProfile --> Address
-    DocumentRegistry --> TemplateDocument : stores prototypes
+flowchart TD
+    A[Prototype object] --> B[Clone]
+    B --> C[New copy]
+    D[Registry] --> A
+    D --> C
 ```
 
 ## Summary
