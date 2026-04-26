@@ -24,7 +24,11 @@ public static class StaticRendererFactory
         => output.ToLowerInvariant() switch
         {
             "pdf" => new PdfRenderer(),
-            _ => new TextRenderer()
+            "text" => new TextRenderer(),
+            _ => throw new ArgumentOutOfRangeException(
+                nameof(output),
+                output,
+                "Unknown renderer type. Supported values are 'pdf' and 'text'.")
         };
 }
 

@@ -22,6 +22,15 @@ public static class NotifierFactory
 {
     public static INotifier Create(string channel, bool highPriority)
     {
+        if (!channel.Equals("email", StringComparison.OrdinalIgnoreCase)
+            && !channel.Equals("sms", StringComparison.OrdinalIgnoreCase))
+        {
+            throw new ArgumentOutOfRangeException(
+                nameof(channel),
+                channel,
+                "Unknown channel. Supported values are 'email' and 'sms'.");
+        }
+
         if (highPriority || channel.Equals("sms", StringComparison.OrdinalIgnoreCase))
         {
             return new SmsNotifier();

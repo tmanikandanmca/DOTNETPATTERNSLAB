@@ -14,4 +14,6 @@
   <Folder Name="/src/03-VirtualConstructor/">
     <Project Path="src/03-VirtualConstructor/FactoryMethod.VirtualConstructor.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/" />
+  <Project Path="tests/FactoryMethod.UnitTests.csproj" />
 </Solution>
