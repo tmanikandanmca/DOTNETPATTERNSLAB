@@ -12,4 +12,4 @@ All creational patterns now live inside the main Creational folder:
 4. Builder
 5. Prototype
 
-Each pattern keeps its own solution and source variants, and the test folders have been removed.
+Each pattern keeps its own solution and source variants. Singleton now also includes a dedicated NUnit test solution under `Creational/Singleton`.

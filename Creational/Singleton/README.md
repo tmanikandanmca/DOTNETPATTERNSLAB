@@ -141,6 +141,8 @@ You can confirm the Singleton implementation is correct with the following check
 
 If these checks pass, the implementation is correctly demonstrating Singleton.
 
+The repository now includes NUnit coverage for these checks in `Singleton.slnx`, with a single `tests/Singleton.UnitTests.csproj` project that keeps one test class file per singleton variant directly under `tests/`.
+
 ---
 
 ## Summary

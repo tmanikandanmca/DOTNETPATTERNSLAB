@@ -10,6 +10,13 @@ public sealed class BasicSingletonService
     public static BasicSingletonService GetInstance() => Instance;
 
     public string Id => _id.ToString("N");
+    public string State { get; private set; } = "Initial";
+
+    public void SetState(string state)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(state);
+        State = state;
+    }
 }
 
 public static class BasicSingletonDemo

@@ -20,4 +20,6 @@
   <Folder Name="/src/05-EagerInitialization/">
     <Project Path="src/05-EagerInitialization/Singleton.EagerInitialization.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/" />
+  <Project Path="tests/Singleton.UnitTests.csproj" />
 </Solution>

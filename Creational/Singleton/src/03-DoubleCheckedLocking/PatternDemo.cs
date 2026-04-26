@@ -22,6 +22,13 @@ public sealed class DoubleCheckedLockingService
     }
 
     public string Id => _id.ToString("N");
+    public string State { get; private set; } = "Initial";
+
+    public void SetState(string state)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(state);
+        State = state;
+    }
 }
 
 public static class DoubleCheckedLockingDemo
