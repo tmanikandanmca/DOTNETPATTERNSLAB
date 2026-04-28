@@ -11,4 +11,7 @@
   <Folder Name="/src/02-FactoryOfFactories/">
     <Project Path="src/02-FactoryOfFactories/AbstractFactory.FactoryOfFactories.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AbstractFactory.UnitTests.csproj" />
+  </Folder>
 </Solution>

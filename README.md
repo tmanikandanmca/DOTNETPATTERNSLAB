@@ -1,10 +1,10 @@
 # DotNet Patterns Lab
 
-A .NET 10 Web API learning workspace for creational design patterns.
+A .NET 10 Web API learning workspace for design patterns.
 
 ## Workspace structure
 
-All creational patterns now live inside the main Creational folder:
+Creational patterns:
 
 1. Singleton
 2. Factory Method
@@ -12,4 +12,14 @@ All creational patterns now live inside the main Creational folder:
 4. Builder
 5. Prototype
 
-Each pattern keeps its own solution and source variants. Singleton now also includes a dedicated NUnit test solution under `Creational/Singleton`.
+Structural patterns:
+
+1. Adapter
+2. Decorator
+3. Facade
+4. Composite
+5. Proxy
+6. Bridge
+7. Flyweight
+
+Each pattern keeps its own solution and source variants. Singleton also includes a dedicated NUnit test solution under Creational/Singleton.
