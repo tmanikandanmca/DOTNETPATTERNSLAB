@@ -14,4 +14,7 @@
   <Folder Name="/src/03-CloneRegistry/">
     <Project Path="src/03-CloneRegistry/Prototype.CloneRegistry.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Prototype.UnitTests.csproj" />
+  </Folder>
 </Solution>
