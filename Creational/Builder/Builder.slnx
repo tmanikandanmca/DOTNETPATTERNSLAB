@@ -14,4 +14,7 @@
   <Folder Name="/src/03-DirectorBasedBuilder/">
     <Project Path="src/03-DirectorBasedBuilder/Builder.DirectorBasedBuilder.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Builder.UnitTests.csproj" />
+  </Folder>
 </Solution>
