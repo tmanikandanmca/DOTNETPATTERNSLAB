@@ -11,4 +11,7 @@
   <Folder Name="/src/02-ObjectAdapter/">
     <Project Path="src/02-ObjectAdapter/Adapter.ObjectAdapter.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Adapter.UnitTests.csproj" />
+  </Folder>
 </Solution>
