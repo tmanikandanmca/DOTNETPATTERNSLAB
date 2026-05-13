@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-IntrinsicVsExtrinsicState/">
+    <Project Path="src/01-IntrinsicVsExtrinsicState/Flyweight.IntrinsicVsExtrinsicState.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-CompositeFlyweight/">
+    <Project Path="src/02-CompositeFlyweight/Flyweight.CompositeFlyweight.Api.csproj" />
+  </Folder>
+</Solution>

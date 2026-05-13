@@ -1,0 +1,9 @@
+@Composite.SafeComposite.Api_HostAddress = http://localhost:5000
+
+GET {{Composite.SafeComposite.Api_HostAddress}}/
+Accept: application/json
+
+###
+
+GET {{Composite.SafeComposite.Api_HostAddress}}/explain
+Accept: application/json

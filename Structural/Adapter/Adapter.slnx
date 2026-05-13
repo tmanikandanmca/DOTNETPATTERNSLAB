@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-ClassAdapter/">
+    <Project Path="src/01-ClassAdapter/Adapter.ClassAdapter.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-ObjectAdapter/">
+    <Project Path="src/02-ObjectAdapter/Adapter.ObjectAdapter.Api.csproj" />
+  </Folder>
+</Solution>

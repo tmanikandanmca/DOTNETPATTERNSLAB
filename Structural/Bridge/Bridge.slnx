@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-AbstractionImplementationSeparation/">
+    <Project Path="src/01-AbstractionImplementationSeparation/Bridge.AbstractionImplementationSeparation.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-RefinedAbstractionVsConcreteImplementor/">
+    <Project Path="src/02-RefinedAbstractionVsConcreteImplementor/Bridge.RefinedAbstractionVsConcreteImplementor.Api.csproj" />
+  </Folder>
+</Solution>

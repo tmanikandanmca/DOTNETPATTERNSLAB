@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-SimpleFacade/">
+    <Project Path="src/01-SimpleFacade/Facade.SimpleFacade.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-LayeredFacade/">
+    <Project Path="src/02-LayeredFacade/Facade.LayeredFacade.Api.csproj" />
+  </Folder>
+</Solution>

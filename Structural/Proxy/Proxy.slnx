@@ -1,0 +1,20 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/" />
+  <Folder Name="/src/01-VirtualProxy/">
+    <Project Path="src/01-VirtualProxy/Proxy.VirtualProxy.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/02-RemoteProxy/">
+    <Project Path="src/02-RemoteProxy/Proxy.RemoteProxy.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/03-ProtectionProxy/">
+    <Project Path="src/03-ProtectionProxy/Proxy.ProtectionProxy.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/04-SmartProxy/">
+    <Project Path="src/04-SmartProxy/Proxy.SmartProxy.Api.csproj" />
+  </Folder>
+</Solution>
