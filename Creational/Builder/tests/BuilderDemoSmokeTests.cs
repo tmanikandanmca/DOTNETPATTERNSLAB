@@ -21,7 +21,7 @@ public class BuilderDemoSmokeTests
 
             Assert.That(GetProp(step, "Pattern"), Is.EqualTo("Builder"));
             Assert.That(GetProp(step, "Variant"), Is.EqualTo("Step Builder"));
-            Assert.That(GetProp(step, "Method"), Is.EqualTo("POST"));
+            Assert.That(GetProp(step, "Environment"), Is.EqualTo("Production"));
 
             Assert.That(GetProp(director, "Pattern"), Is.EqualTo("Builder"));
             Assert.That(GetProp(director, "Variant"), Is.EqualTo("Director-based Builder"));
