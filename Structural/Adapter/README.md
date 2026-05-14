@@ -78,10 +78,25 @@ Any adapter implementing the same target interface can replace another without b
 
 Add UML here to show:
 
-- Target interface
-- Adapter
-- Adaptee
-- Client dependency direction
+```mermaid
+classDiagram
+    class Client
+    class INotification {
+        <<interface>>
+        +Send(message)
+    }
+    class SmsObjectAdapter {
+        -ThirdPartySmsClient smsClient
+        +Send(message)
+    }
+    class ThirdPartySmsClient {
+        +DeliverSms(text)
+    }
+
+    Client --> INotification
+    SmsObjectAdapter ..|> INotification
+    SmsObjectAdapter --> ThirdPartySmsClient
+```
 
 ## 7. Types - Subtype Examples One by One
 
