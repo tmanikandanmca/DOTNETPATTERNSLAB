@@ -11,4 +11,7 @@
   <Folder Name="/src/02-CompositeFlyweight/">
     <Project Path="src/02-CompositeFlyweight/Flyweight.CompositeFlyweight.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Flyweight.UnitTests.csproj" />
+  </Folder>
 </Solution>

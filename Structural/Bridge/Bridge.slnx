@@ -11,4 +11,7 @@
   <Folder Name="/src/02-RefinedAbstractionVsConcreteImplementor/">
     <Project Path="src/02-RefinedAbstractionVsConcreteImplementor/Bridge.RefinedAbstractionVsConcreteImplementor.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Bridge.UnitTests.csproj" />
+  </Folder>
 </Solution>

@@ -11,4 +11,7 @@
   <Folder Name="/src/02-TransparentComposite/">
     <Project Path="src/02-TransparentComposite/Composite.TransparentComposite.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Composite.UnitTests.csproj" />
+  </Folder>
 </Solution>
