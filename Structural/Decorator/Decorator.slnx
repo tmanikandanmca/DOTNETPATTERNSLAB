@@ -14,4 +14,7 @@
   <Folder Name="/src/03-DynamicVsStaticDecoration/">
     <Project Path="src/03-DynamicVsStaticDecoration/Decorator.DynamicVsStaticDecoration.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Decorator.UnitTests.csproj" />
+  </Folder>
 </Solution>
