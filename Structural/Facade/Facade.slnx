@@ -11,4 +11,7 @@
   <Folder Name="/src/02-LayeredFacade/">
     <Project Path="src/02-LayeredFacade/Facade.LayeredFacade.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Facade.UnitTests.csproj" />
+  </Folder>
 </Solution>
