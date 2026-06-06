@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-ClassicVisitor/">
+      <Project Path="src/01-ClassicVisitor/Visitor.ClassicVisitor.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-AcyclicVisitor/">
+      <Project Path="src/02-AcyclicVisitor/Visitor.AcyclicVisitor.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>

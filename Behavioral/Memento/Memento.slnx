@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-BlackBoxMemento/">
+      <Project Path="src/01-BlackBoxMemento/Memento.BlackBoxMemento.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-WhiteBoxMemento/">
+      <Project Path="src/02-WhiteBoxMemento/Memento.WhiteBoxMemento.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>
