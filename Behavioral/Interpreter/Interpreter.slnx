@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-ASTInterpreter/">
+      <Project Path="src/01-ASTInterpreter/Interpreter.ASTInterpreter.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-ContextDrivenInterpreter/">
+      <Project Path="src/02-ContextDrivenInterpreter/Interpreter.ContextDrivenInterpreter.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>

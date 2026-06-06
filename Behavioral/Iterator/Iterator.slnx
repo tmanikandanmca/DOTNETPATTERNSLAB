@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-ExternalIterator/">
+      <Project Path="src/01-ExternalIterator/Iterator.ExternalIterator.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-InternalIterator/">
+      <Project Path="src/02-InternalIterator/Iterator.InternalIterator.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/03-FailFastIterator/">
+      <Project Path="src/03-FailFastIterator/Iterator.FailFastIterator.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>

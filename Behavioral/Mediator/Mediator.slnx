@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-CentralizedMediator/">
+      <Project Path="src/01-CentralizedMediator/Mediator.CentralizedMediator.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-HierarchicalMediator/">
+      <Project Path="src/02-HierarchicalMediator/Mediator.HierarchicalMediator.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>
