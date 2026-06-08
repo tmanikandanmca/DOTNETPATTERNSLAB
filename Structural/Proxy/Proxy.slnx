@@ -17,4 +17,7 @@
   <Folder Name="/src/04-SmartProxy/">
     <Project Path="src/04-SmartProxy/Proxy.SmartProxy.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Proxy.UnitTests.csproj" />
+  </Folder>
 </Solution>
