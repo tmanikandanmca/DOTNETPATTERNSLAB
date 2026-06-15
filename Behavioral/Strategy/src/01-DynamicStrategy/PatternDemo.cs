@@ -13,9 +13,11 @@ public sealed class PercentageDiscountStrategy(decimal percentage) : IPriceStrat
     public decimal Calculate(decimal amount) => amount - (amount * percentage);
 }
 
-public static class StaticPricingStrategy
+public sealed class FlatDiscountStrategy(decimal discount) : IPriceStrategy
 {
-    public static decimal CalculatePremium(decimal amount) => amount * 1.10m;
+    public string Name => $"Flat {discount:C0} discount";
+
+    public decimal Calculate(decimal amount) => Math.Max(0m, amount - discount);
 }
 
 public sealed class PricingContext(IPriceStrategy strategy)
@@ -29,7 +31,8 @@ public static class StrategyDemo
 {
     public static object Create()
     {
-        var dynamicStrategy = new PricingContext(new PercentageDiscountStrategy(0.15m));
+        var percentageContext = new PricingContext(new PercentageDiscountStrategy(0.15m));
+        var flatContext = new PricingContext(new FlatDiscountStrategy(20m));
         var amount = 200m;
 
         return new
@@ -37,15 +40,15 @@ public static class StrategyDemo
             Pattern = "Strategy",
             Dynamic = new
             {
-                dynamicStrategy.StrategyName,
+                percentageContext.StrategyName,
+                Quote = percentageContext.Quote(amount),
+                Alternate = new
+                {
+                    flatContext.StrategyName,
+                    Quote = flatContext.Quote(amount)
+                },
                 Amount = amount,
-                Quote = dynamicStrategy.Quote(amount)
-            },
-            Static = new
-            {
-                Strategy = "StaticPricingStrategy.CalculatePremium",
-                Amount = amount,
-                Quote = StaticPricingStrategy.CalculatePremium(amount)
+                Swappable = true
             }
         };
     }

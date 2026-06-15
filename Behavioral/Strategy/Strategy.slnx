@@ -12,4 +12,7 @@
       <Project Path="src/02-StaticStrategy/Strategy.StaticStrategy.Api.csproj" />
     </Folder>
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Strategy.UnitTests.csproj" />
+  </Folder>
 </Solution>
