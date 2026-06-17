@@ -22,4 +22,4 @@ Structural patterns:
 6. Bridge
 7. Flyweight
 
-Each pattern keeps its own solution and source variants. Singleton also includes a dedicated NUnit test solution under Creational/Singleton.
+Each pattern keeps its own solution, source variants, and dedicated NUnit tests under its `tests/` folder.
