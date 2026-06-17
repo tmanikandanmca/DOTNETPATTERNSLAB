@@ -22,6 +22,20 @@ Structural patterns:
 6. Bridge
 7. Flyweight
 
+Behavioral
+ 
+1. Observer
+2. Strategy
+3. Command
+4. Iterator
+5. Mediator
+6. State
+7. Template Method
+8. Chain of Responsibility
+9. Visitor
+10.Interpreter
+11.Memento
+
 Each pattern keeps its own solution, source variants, and dedicated NUnit tests under its `tests/` folder.
  
 
