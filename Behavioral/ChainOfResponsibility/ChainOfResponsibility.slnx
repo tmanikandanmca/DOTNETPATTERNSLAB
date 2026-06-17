@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-PureChain/">
+      <Project Path="src/01-PureChain/ChainOfResponsibility.PureChain.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-CascadingChain/">
+      <Project Path="src/02-CascadingChain/ChainOfResponsibility.CascadingChain.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>

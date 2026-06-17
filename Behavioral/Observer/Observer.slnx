@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-PushModel/">
+      <Project Path="src/01-PushModel/Observer.PushModel.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-PullModel/">
+      <Project Path="src/02-PullModel/Observer.PullModel.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/03-EventDelegates/">
+      <Project Path="src/03-EventDelegates/Observer.EventDelegates.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>

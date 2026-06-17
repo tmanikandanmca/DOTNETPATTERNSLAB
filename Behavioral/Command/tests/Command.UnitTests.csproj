@@ -22,8 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\01-IntrinsicVsExtrinsicState\Flyweight.IntrinsicVsExtrinsicState.Api.csproj" />
-    <ProjectReference Include="..\src\02-CompositeFlyweight\Flyweight.CompositeFlyweight.Api.csproj" />
+    <ProjectReference Include="..\src\01-SimpleCommand\Command.SimpleCommand.Api.csproj" />
+    <ProjectReference Include="..\src\02-CompositeCommand\Command.CompositeCommand.Api.csproj" />
+    <ProjectReference Include="..\src\03-UndoableCommand\Command.UndoableCommand.Api.csproj" />
   </ItemGroup>
 
 </Project>

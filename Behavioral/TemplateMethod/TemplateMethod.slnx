@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Folder Name="/src/01-AbstractClassTemplate/">
+      <Project Path="src/01-AbstractClassTemplate/TemplateMethod.AbstractClassTemplate.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/02-HookMethods/">
+      <Project Path="src/02-HookMethods/TemplateMethod.HookMethods.Api.csproj" />
+    </Folder>
+  </Folder>
+</Solution>
