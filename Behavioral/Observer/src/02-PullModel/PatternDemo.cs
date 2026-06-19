@@ -1,12 +1,20 @@
 namespace Behavioral.Observer.PullModel.Api;
 
+public interface IPullObserver
+{
+    string Name { get; }
+    string Refresh(TemperatureSensor sensor);
+}
+
 public sealed class TemperatureSensor
 {
-    private readonly List<PullObserver> observers = [];
+    private readonly List<IPullObserver> observers = [];
 
     public int TemperatureCelsius { get; private set; }
 
-    public void Attach(PullObserver observer) => observers.Add(observer);
+    public void Attach(IPullObserver observer) => observers.Add(observer);
+
+    public bool Detach(IPullObserver observer) => observers.Remove(observer);
 
     public IReadOnlyList<string> SetTemperature(int temperatureCelsius)
     {
@@ -15,7 +23,7 @@ public sealed class TemperatureSensor
     }
 }
 
-public sealed class PullObserver(string name)
+public sealed class PullObserver(string name) : IPullObserver
 {
     public string Name { get; } = name;
 

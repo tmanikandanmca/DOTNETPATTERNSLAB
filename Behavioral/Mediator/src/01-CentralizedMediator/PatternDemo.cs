@@ -1,52 +1,48 @@
 namespace Behavioral.Mediator.CentralizedMediator.Api;
 
-public interface IMediator
+public interface IChatMediator
 {
-    string Send(string sender, string message);
+    void Register(IChatColleague colleague);
+    void Send(string sender, string message);
 }
 
-public sealed class ChatRoom : IMediator
+public interface IChatColleague
 {
-    private readonly List<string> messages = [];
+    string Name { get; }
+    void Receive(string sender, string message);
+}
 
-    public string Send(string sender, string message)
+public sealed class ChatRoomMediator : IChatMediator
+{
+    private readonly List<IChatColleague> colleagues = [];
+    private readonly List<string> deliveryLog = [];
+
+    public void Register(IChatColleague colleague) => colleagues.Add(colleague);
+
+    public void Send(string sender, string message)
     {
-        var entry = $"{sender}: {message}";
-        messages.Add(entry);
-        return entry;
+        // Order is controlled in mediator so workflow ordering stays centralized.
+        foreach (var colleague in colleagues.Where(c => !string.Equals(c.Name, sender, StringComparison.Ordinal)))
+        {
+            colleague.Receive(sender, message);
+            deliveryLog.Add($"{sender}->{colleague.Name}:{message}");
+        }
     }
 
-    public IReadOnlyList<string> History => messages;
+    public IReadOnlyList<string> DeliveryLog => deliveryLog;
 }
 
-public sealed class Colleague(string name, IMediator mediator)
+public class ChatColleague(string name, IChatMediator mediator) : IChatColleague
 {
     public string Name { get; } = name;
 
-    public string Say(string message) => mediator.Send(Name, message);
-}
+    public List<string> Inbox { get; } = [];
 
-public sealed class HierarchicalMediator
-{
-    private readonly ChatRoom parent = new();
-    private readonly Dictionary<string, ChatRoom> children = new();
+    public void Send(string message) => mediator.Send(Name, message);
 
-    public ChatRoom GetTeam(string teamName)
+    public virtual void Receive(string sender, string message)
     {
-        if (!children.TryGetValue(teamName, out var room))
-        {
-            room = new ChatRoom();
-            children[teamName] = room;
-        }
-
-        return room;
-    }
-
-    public string Route(string teamName, string sender, string message)
-    {
-        var local = GetTeam(teamName).Send(sender, message);
-        parent.Send($"{teamName}/hub", message);
-        return local;
+        Inbox.Add($"from {sender}: {message}");
     }
 }
 
@@ -54,25 +50,25 @@ public static class MediatorDemo
 {
     public static object Create()
     {
-        var chatRoom = new ChatRoom();
-        var alice = new Colleague("Alice", chatRoom);
-        var bob = new Colleague("Bob", chatRoom);
+        var chatRoom = new ChatRoomMediator();
+        var alice = new ChatColleague("Alice", chatRoom);
+        var bob = new ChatColleague("Bob", chatRoom);
+        var ops = new ChatColleague("Ops", chatRoom);
 
-        var hierarchical = new HierarchicalMediator();
-        var teamMessage = hierarchical.Route("Support", "Sophie", "Ticket reassigned");
+        chatRoom.Register(alice);
+        chatRoom.Register(bob);
+        chatRoom.Register(ops);
 
-        _ = alice.Say("Hello Bob");
-        _ = bob.Say("Hi Alice");
+        alice.Send("Deployment at 17:00");
+        bob.Send("Acknowledged");
 
         return new
         {
             Pattern = "Mediator",
-            Centralized = chatRoom.History,
-            Hierarchical = new
-            {
-                Team = hierarchical.GetTeam("Support").History,
-                Routed = teamMessage
-            }
+            Variant = "Centralized Mediator",
+            Delivery = chatRoom.DeliveryLog,
+            BobInbox = bob.Inbox,
+            OpsInbox = ops.Inbox
         };
     }
 }
