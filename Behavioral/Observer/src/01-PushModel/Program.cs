@@ -17,7 +17,7 @@ app.MapGet("/explain", () => new
 {
     pattern = "Observer",
     variant = "Push model",
-    summary = "Shows push, pull, and event-delegate notification styles in one small API sample."
+    summary = "Subject pushes the changed state directly to observers via an observer abstraction."
 });
 
 app.Run();

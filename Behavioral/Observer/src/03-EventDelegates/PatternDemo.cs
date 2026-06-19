@@ -8,12 +8,34 @@ public sealed class StockTicker
 
     public StockTicker(string symbol) => Symbol = symbol;
 
+    public IDisposable Subscribe(Action<string> handler)
+    {
+        PriceChanged += handler;
+        return new Subscription(() => PriceChanged -= handler);
+    }
+
     public IReadOnlyList<string> Publish(string price)
     {
         var log = new List<string>();
         PriceChanged?.Invoke(price);
         log.Add($"{Symbol}: {price}");
         return log;
+    }
+
+    private sealed class Subscription(Action unsubscribe) : IDisposable
+    {
+        private bool _disposed;
+
+        public void Dispose()
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            unsubscribe();
+            _disposed = true;
+        }
     }
 }
 
