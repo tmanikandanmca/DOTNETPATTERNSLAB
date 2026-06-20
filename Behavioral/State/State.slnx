@@ -12,4 +12,7 @@
       <Project Path="src/02-StateMachineEnumSwitch/State.StateMachineEnumSwitch.Api.csproj" />
     </Folder>
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/State.UnitTests.csproj" />
+  </Folder>
 </Solution>
