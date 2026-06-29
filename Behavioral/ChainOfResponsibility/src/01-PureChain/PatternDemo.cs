@@ -4,7 +4,7 @@ public sealed record SupportRequest(string Category, string Message);
 
 public interface IRequestHandler
 {
-    string Handle(SupportRequest request);
+    string? Handle(SupportRequest request);
 }
 
 public sealed class SingleHandler(string name) : IRequestHandler
@@ -14,22 +14,33 @@ public sealed class SingleHandler(string name) : IRequestHandler
 
 public sealed class ValidationHandler : IRequestHandler
 {
-    public string Handle(SupportRequest request)
+    public string? Handle(SupportRequest request)
     {
         if (string.IsNullOrWhiteSpace(request.Message))
         {
-            return "Request rejected";
+            return null;
         }
 
         return $"Validated {request.Category}";
     }
 }
 
-public sealed class CascadingChain(params IRequestHandler[] handlers)
+public sealed class PureChain(params IRequestHandler[] handlers)
 {
-    public IReadOnlyList<string> Handle(SupportRequest request) => handlers
-        .Select(handler => handler.Handle(request))
-        .ToArray();
+    public string Handle(SupportRequest request)
+    {
+        foreach (var handler in handlers)
+        {
+            var result = handler.Handle(request);
+
+            if (result is not null)
+            {
+                return result;
+            }
+        }
+
+        return "Request unhandled";
+    }
 }
 
 public static class ChainDemo
@@ -38,13 +49,13 @@ public static class ChainDemo
     {
         var request = new SupportRequest("Billing", "Refund request");
         var single = new SingleHandler("BillingAgent");
-        var chain = new CascadingChain(new ValidationHandler(), new SingleHandler("EscalationDesk"));
+        var chain = new PureChain(new ValidationHandler(), new SingleHandler("EscalationDesk"));
 
         return new
         {
             Pattern = "Chain of Responsibility",
-            PureChain = single.Handle(request),
-            CascadingChain = chain.Handle(request)
+            DirectHandler = single.Handle(request),
+            PureChain = chain.Handle(request)
         };
     }
 }
