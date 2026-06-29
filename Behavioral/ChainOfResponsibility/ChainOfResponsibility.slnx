@@ -12,4 +12,7 @@
       <Project Path="src/02-CascadingChain/ChainOfResponsibility.CascadingChain.Api.csproj" />
     </Folder>
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ChainOfResponsibility.UnitTests.csproj" />
+  </Folder>
 </Solution>
