@@ -5,22 +5,45 @@ public sealed class RuleContext
     public Dictionary<string, int> Values { get; } = new(StringComparer.OrdinalIgnoreCase);
 }
 
-public static class RuleInterpreter
+public sealed class RuleInterpreter
 {
-    public static int Evaluate(string rule, RuleContext context)
-        => rule switch
+    private readonly Dictionary<string, Func<RuleContext, int>> _operators;
+
+    public RuleInterpreter()
+    {
+        _operators = new(StringComparer.OrdinalIgnoreCase);
+    }
+
+    public static RuleInterpreter CreateDefault()
+    {
+        var interpreter = new RuleInterpreter();
+        interpreter.Register("standard", context => context.Values["base"]);
+        interpreter.Register("priority", context => context.Values["base"] + context.Values["bonus"]);
+        interpreter.Register("urgent", context => (context.Values["base"] + context.Values["bonus"]) * 2);
+        return interpreter;
+    }
+
+    public void Register(string rule, Func<RuleContext, int> evaluator)
+    {
+        _operators[rule] = evaluator;
+    }
+
+    public int Evaluate(string rule, RuleContext context)
+    {
+        if (_operators.TryGetValue(rule, out var evaluator))
         {
-            "standard" => context.Values["base"],
-            "priority" => context.Values["base"] + context.Values["bonus"],
-            "urgent" => (context.Values["base"] + context.Values["bonus"]) * 2,
-            _ => 0
-        };
+            return evaluator(context);
+        }
+
+        return 0;
+    }
 }
 
 public static class ContextDrivenInterpreterDemo
 {
     public static object Create()
     {
+        var interpreter = RuleInterpreter.CreateDefault();
         var context = new RuleContext();
         context.Values["base"] = 10;
         context.Values["bonus"] = 5;
@@ -29,9 +52,9 @@ public static class ContextDrivenInterpreterDemo
         {
             Pattern = "Interpreter",
             Variant = "Context-driven Interpreter",
-            Standard = RuleInterpreter.Evaluate("standard", context),
-            Priority = RuleInterpreter.Evaluate("priority", context),
-            Urgent = RuleInterpreter.Evaluate("urgent", context)
+            Standard = interpreter.Evaluate("standard", context),
+            Priority = interpreter.Evaluate("priority", context),
+            Urgent = interpreter.Evaluate("urgent", context)
         };
     }
 }
