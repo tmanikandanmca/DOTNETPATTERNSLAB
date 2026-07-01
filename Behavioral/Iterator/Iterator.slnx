@@ -15,4 +15,7 @@
       <Project Path="src/03-FailFastIterator/Iterator.FailFastIterator.Api.csproj" />
     </Folder>
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Iterator.UnitTests.csproj" />
+  </Folder>
 </Solution>

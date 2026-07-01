@@ -1,6 +1,11 @@
 namespace Behavioral.Iterator.FailFastIterator.Api;
 
-public sealed class FailFastBag
+public interface IStringSequence
+{
+    IEnumerable<string> Iterate();
+}
+
+public sealed class FailFastBag : IStringSequence
 {
     private readonly List<string> items = [];
     private int version;
@@ -14,14 +19,14 @@ public sealed class FailFastBag
     public IEnumerable<string> Iterate()
     {
         var snapshot = version;
-        foreach (var item in items)
+        for (var index = 0; index < items.Count; index++)
         {
             if (snapshot != version)
             {
                 throw new InvalidOperationException("Collection modified during iteration.");
             }
 
-            yield return item;
+            yield return items[index];
         }
     }
 }

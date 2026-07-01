@@ -1,6 +1,11 @@
 namespace Behavioral.Iterator.InternalIterator.Api;
 
-public sealed class InternalSequence(IEnumerable<int> values)
+public interface IInternalSequence
+{
+    void ForEach(Action<int> action);
+}
+
+public sealed class InternalSequence(IEnumerable<int> values) : IInternalSequence
 {
     private readonly List<int> items = values.ToList();
 
