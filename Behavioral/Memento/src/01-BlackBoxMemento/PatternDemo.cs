@@ -1,6 +1,6 @@
 namespace Behavioral.Memento.BlackBoxMemento.Api;
 
-public sealed record Snapshot(string Content);
+public interface IMemento;
 
 public sealed class Editor
 {
@@ -8,27 +8,27 @@ public sealed class Editor
 
     public void Type(string text) => Content += text;
 
-    public Snapshot Save() => new(Content);
+    public IMemento Save() => new Snapshot(Content);
 
-    public void Restore(Snapshot snapshot) => Content = snapshot.Content;
-}
+    public void Restore(IMemento memento)
+    {
+        if (memento is not Snapshot snapshot)
+        {
+            throw new ArgumentException("Memento was not created by this originator.", nameof(memento));
+        }
 
-public sealed class WhiteBoxSnapshot
-{
-    public WhiteBoxSnapshot(string content) => Content = content;
+        Content = snapshot.Content;
+    }
 
-    public string Content { get; }
-}
+    private sealed class Snapshot : IMemento
+    {
+        internal Snapshot(string content)
+        {
+            Content = content;
+        }
 
-public sealed class WhiteBoxEditor
-{
-    public string Content { get; private set; } = string.Empty;
-
-    public void Type(string text) => Content += text;
-
-    public WhiteBoxSnapshot Save() => new(Content);
-
-    public void Restore(WhiteBoxSnapshot snapshot) => Content = snapshot.Content;
+        internal string Content { get; }
+    }
 }
 
 public static class MementoDemo
@@ -41,17 +41,11 @@ public static class MementoDemo
         editor.Type(", world");
         editor.Restore(snapshot);
 
-        var whiteBoxEditor = new WhiteBoxEditor();
-        whiteBoxEditor.Type("Draft");
-        var whiteSnapshot = whiteBoxEditor.Save();
-        whiteBoxEditor.Type(" v2");
-        whiteBoxEditor.Restore(whiteSnapshot);
-
         return new
         {
             Pattern = "Memento",
-            BlackBox = editor.Content,
-            WhiteBox = whiteBoxEditor.Content
+            Variant = "Black-box Memento",
+            Restored = editor.Content
         };
     }
 }
