@@ -7,8 +7,8 @@ app.MapGet("/", () => TemplateMethodDemo.Create());
 app.MapGet("/explain", () => new
 {
     pattern = "Template Method",
-    variant = "Abstract Class Template",
-    summary = "A base class defines the algorithm skeleton and derived types fill in the steps."
+    variant = "Pure Template Method",
+    summary = "A base class fixes the full algorithm order and derived types override only the required steps."
 });
 
 app.Run();
